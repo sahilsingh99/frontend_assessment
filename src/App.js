@@ -3,16 +3,10 @@ import {useState, useEffect} from 'react';
 import axios from 'axios';
 import { Redirect, useHistory } from 'react-router-dom';
 import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem'
-import ListItemIcon from '@material-ui/core/ListItemIcon'
-import ListItemText from '@material-ui/core/ListItemText'
-import {Delete, SubjectOutlined} from '@material-ui/icons';
 import { Container, AppBar, Toolbar } from '@material-ui/core';
 import { IconButton, Button, Typography } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
-import DeleteIcon from '@material-ui/icons/Delete'
 import { makeStyles } from '@material-ui/core';
-import { ListItemSecondaryAction } from '@material-ui/core';
 import EventCard from './Components/EventCard';
 import FormDialog from './Components/EventDialogForm';
 
@@ -49,12 +43,12 @@ function App() {
   }
 
   const logoutHandler = () => {
-    axios.get('http://localhost:3000/api/auth/logout')
+    axios.get('https://agile-citadel-61684.herokuapp.com/api/auth/logout')
     .then(res => {
       alert("logged Out :)");
       localStorage.removeItem('token');
       localStorage.removeItem('userId');
-      localStorage.removeItem('username');
+      localStorage.removeItem('userName');
       history.push('/login');
     })
     .catch(err => {
@@ -68,7 +62,7 @@ function App() {
   useEffect(() => {
     console.log(token, userName, userId);
     if(token) {
-      const url = 'http://localhost:3000/api/event/allEvents/' + userId;
+      const url = 'https://agile-citadel-61684.herokuapp.com/api/event/allEvents/' + userId;
       axios.get(
         url,
         {

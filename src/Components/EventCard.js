@@ -38,7 +38,7 @@ export default function EeventCard(props) {
 
   var deleteHandle = (e) => {
     e.preventDefault();
-    const url = 'http://localhost:3000/api/event/delete/' + event._id + '/' + props.userId;
+    const url = 'https://agile-citadel-61684.herokuapp.com/api/event/delete/' + event._id + '/' + props.userId;
     axios.delete( url, {
         headers: {
           "Content-type": "Application/json",
@@ -71,7 +71,10 @@ export default function EeventCard(props) {
           venue : {event.venue}
         </Typography>
         <Typography className={classes.pos} color="Secondary" variant="h5">
-          Timings : {moment(event.startTime).format("YYYY-MM-DD HH:mm")}  -  {moment(event.endTime).format("YYYY-MM-DD HH:mm")}
+          Start Time : {moment(event.startTime).format("YYYY-MM-DD HH:mm")}  
+        </Typography>
+        <Typography className={classes.pos} color="Secondary" variant="h5">
+          End Tme : {moment(event.endTime).format("YYYY-MM-DD HH:mm")}
         </Typography>
       </CardContent>
       <CardActions>

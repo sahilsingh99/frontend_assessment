@@ -8,7 +8,6 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import { useState } from 'react';
 import axios from 'axios';
-import { KeyboardReturnRounded, SettingsVoiceOutlined } from '@material-ui/icons';
 import moment from 'moment';
 
 export default function PostFormDialog(props) {
@@ -68,7 +67,7 @@ export default function PostFormDialog(props) {
           alert('end time must be in future to start time');
           return;
       }
-      const url = 'http://localhost:3000/api/event/create/' + props.userId;
+      const url = 'https://agile-citadel-61684.herokuapp.com/api/event/create/' + props.userId;
         axios.post( url, {
         name : name,
         description : description,

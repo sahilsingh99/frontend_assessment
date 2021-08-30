@@ -50,7 +50,7 @@ function Register() {
     var handleSubmit = (e) => {
         e.preventDefault();
         console.log('clicked')
-        axios.post('http://localhost:3000/api/auth/signup', {
+        axios.post('https://agile-citadel-61684.herokuapp.com/api/auth/signup', {
             username : nameRef.current.value,
           email : emailRef.current.value,
           password : passRef.current.value
